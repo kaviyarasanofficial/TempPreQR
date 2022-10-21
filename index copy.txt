@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--Adding CSS Style Sheet To HTML Header Section  -->
+<link rel="stylesheet" type="text/css" href="index.css"/>
+</head>
+<body>
+<!-- This Section Adding Tab Link Working Function Div Section Its Display TAB Button Names-->
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'Client')" id="defaultOpen">Client</button>
+  <button class="tablinks" onclick="openCity(event, 'Vendor')">Vendor</button>
+  <button class="tablinks" onclick="openCity(event, 'Candidate')">Candidate</button>
+</div>
+<!-- This Section Declaring Client TAB Section  -->
+<div id="Client" class="tabcontent">
+  <div class="container">
+    <div class="form-control">
+      <!-- This Section Client Form Details Form Section -->
+  <form id="form" class="form">
+    <label>Client Name <span >*</span> </label>
+    <input type="text" pattern="[a-z A-Z]*" title=" Name should only contain Letters" placeholder="E.g: Ponniyin Selvan" onfocus="this.placeholder=''" onblur="this.placeholder='E.g: Ponnin Selvan'" maxlength="20"  required >
+    <label>Phone Number <span >*</span></label>
+    <input type="tel" pattern="[0-9]{5}[0-9]{5}" title=" should only contain 10 numbers" placeholder="9689093456" onfocus="this.placeholder=''" onblur="this.placeholder='9689093456'" maxlength="10" required >
+    <label>Email ID <sup> optional </sup> </label>
+    <input type="email"  placeholder="yourmail@mail.com  " title=" should only contain @mail.com" onfocus="this.placeholder=''" onblur="this.placeholder='yourmail@gmail.com'"  >
+    <label>No Of Clients</label>
+    <input type="number" value="1" maxlength="2" pattern="[0-4]{1}" title=" Enter the number of people accompanying the client" placeholder="E.g: 2" onfocus="this.placeholder=''" onblur="this.placeholder='E.g: 2'" ><br><br>
+    <!-- This Button Once Entering Client Details Moving Function Button Section-->
+    <button>Submit</button>
+    </form>
+</div>
+</div>
+</div>
+<!-- This Section Declaring Vendor TAB Section  -->
+<div id="Vendor" class="tabcontent">
+  <div class="container">
+    <div class="form-control">
+<!-- This Section Vendor Form Details Form Section -->
+  <form id="form" class="form">
+    <label>Vendor Name <span >*</span> </label>
+    <input type="text" pattern="[a-z A-Z]*" title=" Name should only contain Letters" placeholder="E.g: Ponniyin Selvan" onfocus="this.placeholder=''" onblur="this.placeholder='E.g: Ponnin Selvan'" maxlength="20"  required >
+    <label>Phone Number <span >*</span></label>
+    <input type="tel" pattern="[0-9]{5}[0-9]{5}" title=" should only contain 10 numbers" placeholder="9689093456" onfocus="this.placeholder=''" onblur="this.placeholder='9689093456'" maxlength="10" required >
+    <label>Email ID <sup style="color:rgb(108, 105, 105);font-weight:bold; font-size: 11px"> optional </sup></label>
+    <input type="email" placeholder="yourmail@mail.com " title=" should only contain @mail.com" onfocus="this.placeholder=''" onblur="this.placeholder='yourmail@gmail.com'" >
+    <label>Visiting Card Details</label>
+    <input type="text" placeholder="Geetham Soft Pvt Lmt" title= "Enter vendor company details" onfocus="this.placeholder=''" onblur="this.placeholder='Geetham Soft Pvt Lmt'" > <br><br>
+    <!-- This Button Once Entering Client Details Moving Function Button Section-->
+    <button>Submit</button>
+</form>
+</div>
+</div>
+</div>
+<!-- This Section Declaring Vendor TAB Section  -->
+<div id="Candidate" class="tabcontent">
+  <div class="container">
+    <div class="form-control">
+  <!-- This Section Interview Candidate Form Details Form Section -->
+  <form id="form" class="form">
+    <label>Candidate Name <span>*</span> </label>
+    <input type="text" pattern="[a-z A-Z]*" title=" Name should only contain Letters" placeholder="E.g: Ponniyin Selvan" onfocus="this.placeholder=''" onblur="this.placeholder='E.g: Ponnin Selvan'"  maxlength="20"  required >
+    <label>Phone Number <span>*</span> </label>
+    <input type="tel" pattern="[0-9]{5}[0-9]{5}" title=" should only contain 10 numbers" placeholder="9689093456" onfocus="this.placeholder=''" onblur="this.placeholder='9689093456'" maxlength="10" required >
+    <label>Email ID <sup style="color:rgb(108, 105, 105);font-weight:bold; font-size: 11px"> optional </sup></label>
+    <input type="email" placeholder="yourmail@mail.com " title=" should only contain @mail.com" onfocus="this.placeholder=''" onblur="this.placeholder='yourmail@gmail.com'"  >
+    <label>ID Proof Number <span >*</span></label> 
+    <input type="text"  placeholder="Aadhar/ Voter ID" title=" Enter Aadhar Number" onfocus="this.placeholder=''" onblur="this.placeholder='Aadhar/Voter ID'" required ><br><br>
+    <!-- This Button Once Entering Client Details Moving Function Button Section-->
+    <button>Submit</button>
+</form>
+</div>
+</div>
+</div>
+<!-- This Java Script Section Control The TAB Menu Activity and active TAB Fuction Java Script-->
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+<!-- This HTML Code In a Camera Controls Section It Including Button Control-->
+
+<div id="containerphoto">
+  <video autoplay="true" id="video"></video>
+  <button id="btn"> Take Snap & Save </button>
+  <canvas id="canvas" class="hidden"></canvas>
+  <img src="" alt="" id="img">
+  <a id="dl-btn" href="#" download="image.jpeg" class="hidden"></a>
+</div>
+
+<!-- This Java Script Section Control Camera Video Function and Download Image from snap the video Functions are Including -->
+<script>
+
+const video = document.querySelector('#video')
+const btn = document.querySelector('#btn')
+const canvas =  document.querySelector('#canvas')
+
+if(navigator.mediaDevices.getUserMedia){
+    navigator.mediaDevices.getUserMedia({video: true })
+    .then(stream => {
+        video.srcObject = stream
+    })
+    .catch(error => {
+        console.log('An error occured while accessing webcam.')
+    })
+}
+
+btn.addEventListener('click', () => {
+    // get intrinsic width and height of the video element
+    const width = video.videoWidth, height = video.videoHeight
+
+    const context = canvas.getContext('2d')
+
+    canvas.width = width
+    canvas.height = height
+
+    context.drawImage(video, 0, 0, width, height)
+
+    const imgURL = canvas.toDataURL('image/png')
+
+    document.querySelector('#dl-btn').href = imgURL
+
+    document.querySelector('#dl-btn').click()
+
+})
+</script>
+<script>
+  document.addEventListener("contextmenu", function(event){
+  event.preventDefault();
+  alert('Right Click is Disabled');    
+  }, false);
+  </script>
+
+
+</body>
+</html> 
+
+
+
+
+
+
+
+
+
+* {box-sizing: border-box}
+body {
+  
+    background: linear-gradient(35deg, red, purple);
+  
+  font-family: "Lato", sans-serif;}
+
+/* Style the tab */
+.tab {
+  float: left;
+  border: 1px solid rgb(255, 3, 3);
+  background-color: #fefefe;
+  width: 10%;
+  height: px;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  display: block;
+  border-radius: 7px;
+  background-color: inherit;
+  color: rgb(19, 1, 1);
+  padding: 10px 20px;
+  width: 100%;
+  border: 8px solid #d91d3f;;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+  background-color:Cyan;
+}
+
+/* Style the tab content */
+.tabcontent {
+  float: left;
+  padding: 12px 12px;
+  border: px solid rgb(223, 15, 15);
+  width: 40%;
+  border-left: none;
+  height: 560px;
+}
+.container {
+  padding: 29px;
+	background-color: rgb(255, 251, 251);
+	border-radius: 32px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	overflow: hidden;
+	width: 330px;
+	max-width: 100%;
+}
+.form {
+	padding: 4px 14px;	
+  
+}
+
+.form-control {
+	margin-bottom: 1px;
+	padding-bottom: 2px;
+	position: relative;
+}
+
+.form-control label {
+	display: inline-block; 
+	margin-bottom: 11px;
+}
+
+.form-control input {
+	border: 2px solid #10ebb8;
+	border-radius: 11px;
+	display: block;
+	font-family: inherit;
+	font-size: 14px;
+  margin-bottom: 18px;
+	padding: 11px;
+	width: 100%;
+}
+.form button {
+	background-color: #9d25b0f0;
+	border: 2px solid #0b0606;
+	border-radius: 8px;
+	color: #fff;
+	display: block;
+	font-family: inherit;
+	font-size: 16px;
+	padding: 10px;
+	margin-top: 1px;
+
+  margin-bottom: 2px;
+	width: 100%;
+}
+#containerphoto {
+    margin: 16px auto;
+    width: 300px;
+    height: 375px;
+	padding:18px 300px;
+}
+#video {
+    width: 363px;
+    height: 272px;
+    background-color: rgb(157, 9, 147);
+    border-radius: 32px;
+}
+
+.hidden{
+    display: none;
+}
+
+#btn{
+	background-color: #9d25b0f0;
+	color: #fff;
+    display: block;
+    margin: 30px auto;
+	top: 5px;
+	margin-left: 100px;
+	bottom: 30px;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+	padding: 10px;
+	
+	
+}
+
+#btn:hover{
+    cursor: pointer;
+}
+
+form span{
+  color:red;
+  font-weight:bold;
+   font-size: 17px;
+}
+form sup{
+  
+  color:rgb(108, 105, 105);
+  font-weight:bold; 
+  font-size: 11px;
+}
